@@ -1,4 +1,4 @@
-package com.example.bloglite;
+package com.example.bloglite.entities;
 
 public class Greetings
 {
