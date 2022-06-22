@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User
+public class Users
 {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -14,6 +14,10 @@ public class User
 
     private String name;
     private String email;
+
+    public Users(long incrementAndGet, String format)
+    {
+    }
 
     public Integer getId()
     {

@@ -65,3 +65,44 @@ VALUES
 (1,1,'Hej, bo nie wiem czy czytałeś mój post to chcę wiedzieć czy publikujesz za kasę?',3,'2022-08-23 12:00:00'),
 (2,2,'Wal się na ryj trollu z Kociej Wólki',2,'2022-08-23 12:00:00'),
 (3,3,'Nic tu nie kupuj, szkoda kasy, pieniądze w błoto...',1,'2022-09-23 12:50:00');
+
+INSERT INTO `blog_lite_db`.`purchase`
+(`id`,
+`product_id`,
+`buyer_user_id`,
+`purchase_date`,
+`delivered`,
+`comment`)
+VALUES
+(1,2,3,'2022-08-24 11:30:00',0,'one of three done'),
+(2,1,1,'2022-08-25 15:34:05',1,'one of three done'),
+(3,3,4,'2022-07-30 23:35:59',0,'one of three done');
+
+INSERT INTO `blog_lite_db`.`purchased_posts`
+(`id`,
+`purchase_id`,
+`post_id`)
+VALUES
+(1,1,1),
+(2,2,3),
+(3,3,2);
+
+INSERT INTO `blog_lite_db`.`subscriptions`
+(`id`,
+`user_id`,
+`tag_id`,
+`start_date`,
+`end_date`)
+VALUES
+(1,1,3,'2022-09-01 22:22:22',NULL),
+(2,4,6,'2022-09-01 22:22:22','2022-10-01 22:22:22'),
+(3,3,9,'2022-09-01 22:22:22',NULL);
+
+INSERT INTO `blog_lite_db`.`tags_for_posts`
+(`id`,
+`tag_id`,
+`post_id`)
+VALUES
+(1,1,1),
+(2,2,2),
+(3,3,3);
