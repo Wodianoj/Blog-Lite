@@ -18,7 +18,7 @@ USE `blog_lite_db` ;
 -- Table `blog_lite_db`.`role`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`role` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
@@ -29,11 +29,11 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `last_name` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
-  `role_id` INT NOT NULL,
+  `role_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
@@ -50,8 +50,8 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`post`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`post` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
   `title` VARCHAR(255) NOT NULL,
   `content` TEXT NOT NULL,
   `picture_url` VARCHAR(255) NULL,
@@ -72,7 +72,7 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`tag`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`tag` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
@@ -83,10 +83,10 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`comment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`comment` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `post_id` INT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `post_id` BIGINT NOT NULL,
   `content` TEXT NOT NULL,
-  `user_id` INT NOT NULL,
+  `user_id` BIGINT NOT NULL,
   `date` DATETIME NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -110,7 +110,7 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`product` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `description` TEXT NOT NULL,
   `price` DECIMAL(12,2) NOT NULL,
@@ -123,9 +123,9 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`purchase`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`purchase` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `product_id` INT NOT NULL,
-  `buyer_user_id` INT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `product_id` BIGINT NOT NULL,
+  `buyer_user_id` BIGINT NOT NULL,
   `purchase_date` DATETIME NOT NULL,
   `delivered` TINYINT NOT NULL,
   `comment` TEXT NOT NULL,
@@ -151,9 +151,9 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`purchased_posts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`purchased_posts` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `purchase_id` INT NOT NULL,
-  `post_id` INT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `purchase_id` BIGINT NOT NULL,
+  `post_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `FK_purchased_posts_post_id_idx` (`post_id` ASC),
@@ -175,9 +175,9 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`tags_for_posts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`tags_for_posts` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `tag_id` INT NOT NULL,
-  `post_id` INT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `tag_id` BIGINT NOT NULL,
+  `post_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `FK_tags_for_posts_tag_id_idx` (`tag_id` ASC),
@@ -199,9 +199,9 @@ ENGINE = InnoDB;
 -- Table `blog_lite_db`.`subscriptions`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`subscriptions` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `tag_id` INT NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `user_id` BIGINT NOT NULL,
+  `tag_id` BIGINT NOT NULL,
   `start_date` DATETIME NOT NULL,
   `end_date` DATETIME NULL,
   PRIMARY KEY (`id`),
