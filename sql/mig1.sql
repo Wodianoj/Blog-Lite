@@ -26,9 +26,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `blog_lite_db`.`users`
+-- Table `blog_lite_db`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `blog_lite_db`.`users` (
+CREATE TABLE IF NOT EXISTS `blog_lite_db`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `last_name` VARCHAR(255) NOT NULL,
@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS `blog_lite_db`.`users` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
-  INDEX `FK_users_role_id` (`role_id` ASC) ,
-  CONSTRAINT `FK_users_role_id`
+  INDEX `FK_user_role_id` (`role_id` ASC) ,
+  CONSTRAINT `FK_user_role_id`
     FOREIGN KEY (`role_id`)
     REFERENCES `blog_lite_db`.`role` (`id`)
     ON DELETE NO ACTION
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `blog_lite_db`.`post` (
   INDEX `FK_post_user_id_idx` (`user_id` ASC),
   CONSTRAINT `FK_post_user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `blog_lite_db`.`users` (`id`)
+    REFERENCES `blog_lite_db`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `blog_lite_db`.`comment` (
   INDEX `idx_comment_date` (`date` ASC),
   CONSTRAINT `FK_comment_user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `blog_lite_db`.`users` (`id`)
+    REFERENCES `blog_lite_db`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_comment_post_id`
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `blog_lite_db`.`purchase` (
   INDEX `idx_date` (`purchase_date` ASC),
   CONSTRAINT `FK_purchase_user_id`
     FOREIGN KEY (`buyer_user_id`)
-    REFERENCES `blog_lite_db`.`users` (`id`)
+    REFERENCES `blog_lite_db`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_purchase_product_id`
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `blog_lite_db`.`subscriptions` (
   INDEX `idx_end_date` (`end_date` ASC),
   CONSTRAINT `FK_subscriptions_user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `blog_lite_db`.`users` (`id`)
+    REFERENCES `blog_lite_db`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_subscriptions_tag_id`

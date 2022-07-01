@@ -30,7 +30,7 @@ VALUES
 (8,'rodzina'),
 (9,'kultura');
 
-INSERT INTO `blog_lite_db`.`users`
+INSERT INTO `blog_lite_db`.`user`
 (`id`,
 `name`,
 `last_name`,
