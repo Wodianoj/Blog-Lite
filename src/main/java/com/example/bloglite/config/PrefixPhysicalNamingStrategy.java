@@ -1,10 +1,10 @@
 package com.example.bloglite.config;
 
+import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
-import org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy;
 
-public class PrefixPhysicalNamingStrategy extends SpringPhysicalNamingStrategy
+public class PrefixPhysicalNamingStrategy extends CamelCaseToUnderscoresNamingStrategy
 {
     private static final String TABLE_NAME_PREFIX = "Bl";
 
