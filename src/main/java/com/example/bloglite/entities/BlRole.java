@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class BlTag
+public class BlRole
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

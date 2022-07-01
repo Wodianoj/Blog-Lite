@@ -9,11 +9,14 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class BlTag
+public class BlUser
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long roleId;
 
     private String name;
+    private String lastName;
+    private String email;
 }
