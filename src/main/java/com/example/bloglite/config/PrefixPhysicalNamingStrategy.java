@@ -1,17 +1,18 @@
 package com.example.bloglite.config;
 
-import org.hibernate.cfg.ImprovedNamingStrategy;
+import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
+import org.hibernate.boot.model.naming.Identifier;
+import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 
-public class PrefixPhysicalNamingStrategy extends ImprovedNamingStrategy
+public class PrefixPhysicalNamingStrategy extends CamelCaseToUnderscoresNamingStrategy
 {
-    /**
-     * TODO Make this an injectable application property
-     */
-    public static final String TABLE_NAME_PREFIX = "Bl";
+    private static final String TABLE_NAME_PREFIX = "Bl";
 
     @Override
-    public String classToTableName(String className) {
-        String prefixlessClassName = className.replaceFirst(TABLE_NAME_PREFIX, "");
-        return super.classToTableName(prefixlessClassName);
+    public Identifier toPhysicalTableName(Identifier name, JdbcEnvironment context)
+    {
+        final String prefixedClassName = name.getText();
+        final String prefixlessClassName = prefixedClassName.replaceFirst(TABLE_NAME_PREFIX, "");
+        return super.toPhysicalTableName(new Identifier(prefixlessClassName, true), context);
     }
 }

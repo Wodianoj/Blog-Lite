@@ -9,5 +9,4 @@ public class BlogliteApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BlogliteApplication.class, args);
 	}
-
 }
