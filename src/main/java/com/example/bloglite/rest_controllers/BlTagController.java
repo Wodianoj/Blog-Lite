@@ -3,7 +3,12 @@ package com.example.bloglite.rest_controllers;
 import com.example.bloglite.entities.BlTag;
 import com.example.bloglite.repositories.BlTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,5 +28,24 @@ public class BlTagController
     public List<BlTag> getAll()
     {
         return repository.findAll();
+    }
+
+    @PostMapping("/tag")
+    public BlTag create(@RequestBody final BlTag tag)
+    {
+        return repository.save(tag);
+    }
+
+    @PutMapping("/tag/{id}")
+    public BlTag update(@PathVariable("id") final Long tagId,
+                        @RequestBody final BlTag tag)
+    {
+        return repository.save(tag);
+    }
+
+    @DeleteMapping("/tag")
+    public void delete(@RequestBody final BlTag tag)
+    {
+        repository.delete(tag);
     }
 }
