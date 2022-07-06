@@ -1,12 +1,14 @@
 package com.example.bloglite.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
@@ -18,10 +20,18 @@ public class BlPost
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long userId;
+
+    @OneToOne
+    private BlUser user;
+    //private Long userId;
 
     private String title;
+
+    @Column(columnDefinition = "text")
     private String content;
+
     private String pictureUrl;
-    private LocalDateTime dateTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime postDate;
 }
