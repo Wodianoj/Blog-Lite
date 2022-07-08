@@ -54,9 +54,16 @@ public class BlTagController
         }
     }
 
-    @DeleteMapping("/tag")
-    public void delete(@RequestBody final BlTag tag)
+    @DeleteMapping("/tag/{id}")
+    public void delete(@PathVariable("id") final Long tagId)
     {
-        repository.delete(tag);
+        if (repository.existsById(tagId))
+        {
+            service.delete(tagId);
+        }
+        else
+        {
+            throw new IllegalArgumentException(String.format("Incorrect or non existent id"));
+        }
     }
 }

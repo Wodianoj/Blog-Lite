@@ -23,7 +23,6 @@ public class BlPost
 
     @OneToOne
     private BlUser user;
-    //private Long userId;
 
     private String title;
 
