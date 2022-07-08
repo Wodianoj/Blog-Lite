@@ -34,4 +34,12 @@ public class BlTagService
         return repository.save(entity);
     }
 
+    public void delete(final Long id)
+    {
+        final BlTag entity = new BlTag();
+        entity.setId(id);
+        repository.delete(entity);
+
+    }
+
 }

@@ -54,9 +54,9 @@ public class BlTagController
         }
     }
 
-    @DeleteMapping("/tag")
-    public void delete(@RequestBody final BlTag tag)
+    @DeleteMapping("/tag/{id}")
+    public void delete(@PathVariable("id") final Long tagId)
     {
-        repository.delete(tag);
+        service.delete(tagId);
     }
 }
