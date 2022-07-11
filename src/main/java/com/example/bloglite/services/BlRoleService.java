@@ -1,33 +1,33 @@
 package com.example.bloglite.services;
 
-import com.example.bloglite.entities.BlTag;
-import com.example.bloglite.pojo.BlTagPojo;
-import com.example.bloglite.repositories.BlTagRepository;
+import com.example.bloglite.entities.BlRole;
+import com.example.bloglite.pojo.BlRolePojo;
+import com.example.bloglite.repositories.BlRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BlRoleService
 {
-    private final BlTagRepository repository;
+    private final BlRoleRepository repository;
 
     @Autowired
-    public BlRoleService(final BlTagRepository repository)
+    public BlRoleService(final BlRoleRepository repository)
     {
         this.repository = repository;
     }
 
-    public BlTag create(final BlTagPojo pojo)
+    /*public BlRole create(final BlRolePojo pojo)
     {
-        final BlTag entity = new BlTag();
+        final BlRole entity = new BlRole();
         entity.setName(pojo.getName());
 
         return repository.save(entity);
     }
 
-    public BlTag update(final Long id, final BlTagPojo tagPojo)
+    public BlRole update(final Long id, final BlRolePojo tagPojo)
     {
-        final BlTag entity = new BlTag();
+        final BlRole entity = new BlRole();
         entity.setId(id);
         entity.setName(tagPojo.getName());
 
@@ -37,5 +37,5 @@ public class BlRoleService
     public void delete(final Long id)
     {
         repository.deleteById(id);
-    }
+    }*/
 }
