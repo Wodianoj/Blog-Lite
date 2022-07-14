@@ -20,7 +20,7 @@ public class BlTagController
 {
     private final BlTagRepository repository;
     private final BlTagService service;
-    private final String ERROR_INFO = "Incorrect or non existent id";
+    private static final String ERROR_INFO = "Incorrect or non existent id";
 
     @Autowired
     public BlTagController(BlTagRepository repository, BlTagService service)
@@ -38,7 +38,8 @@ public class BlTagController
     @GetMapping("/tag/{id}")
     public BlTag getById(@PathVariable("id") final Long id)
     {
-        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException(String.format(ERROR_INFO)));
+        return repository.findById(id).orElseThrow(() ->
+                new IllegalArgumentException(String.format(ERROR_INFO)));
     }
 
     @PostMapping("/tag")
