@@ -13,6 +13,7 @@ import java.util.List;
 public class BlRoleController
 {
     private static final String ERROR_INFO = "Incorrect or non existent id";
+
     private final BlRoleRepository repository;
 
     @Autowired
