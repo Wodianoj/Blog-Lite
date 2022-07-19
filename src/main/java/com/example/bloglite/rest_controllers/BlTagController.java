@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -50,7 +51,7 @@ public class BlTagController
 
     @PutMapping("/tag/{id}")
     public BlTag update(@PathVariable("id") final Long tagId,
-                        @RequestBody final BlTagPojo tagPojo)
+                        @RequestBody @Valid final BlTagPojo tagPojo)
     {
         if (repository.existsById(tagId))
         {
