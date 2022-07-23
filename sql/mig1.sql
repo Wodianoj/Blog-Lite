@@ -200,18 +200,18 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog_lite_db`.`subscriptions` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `user_id` BIGINT NOT NULL,
+  `subscriber_id` BIGINT NOT NULL,
   `tag_id` BIGINT NOT NULL,
   `start_date` DATETIME NOT NULL,
   `end_date` DATETIME NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  INDEX `FK_subscriptions_user_id_idx` (`user_id` ASC),
+  INDEX `FK_subscriptions_subscriber_id` (`subscriber_id` ASC),
   INDEX `idx_date` (`start_date` ASC),
   INDEX `FK_subscriptions_tag_id_idx` (`tag_id` ASC),
   INDEX `idx_end_date` (`end_date` ASC),
-  CONSTRAINT `FK_subscriptions_user_id`
-    FOREIGN KEY (`user_id`)
+  CONSTRAINT `FK_subscriptions_subscriber_id`
+    FOREIGN KEY (`subscriber_id`)
     REFERENCES `blog_lite_db`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -221,6 +221,19 @@ CREATE TABLE IF NOT EXISTS `blog_lite_db`.`subscriptions` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `kds`.`hibernate_sequence`
+-- -----------------------------------------------------
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+SET SQL_SAFE_UPDATES=0;
+INSERT INTO `hibernate_sequence` (`next_val`)
+VALUES (20);
+SET SQL_SAFE_UPDATES=1;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

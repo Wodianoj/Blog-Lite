@@ -89,7 +89,7 @@ VALUES
 
 INSERT INTO `blog_lite_db`.`subscriptions`
 (`id`,
-`user_id`,
+`subscriber_id`,
 `tag_id`,
 `start_date`,
 `end_date`)
