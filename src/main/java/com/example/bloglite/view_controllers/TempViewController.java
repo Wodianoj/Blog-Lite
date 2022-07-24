@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TempViewController
 {
-    @GetMapping("/temp")
+    @GetMapping({"/temp", "/"})
     public String getTempPage()
     {
         return "Temp";
