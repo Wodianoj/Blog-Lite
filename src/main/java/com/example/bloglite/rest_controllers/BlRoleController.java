@@ -32,6 +32,6 @@ public class BlRoleController
     public BlRole getById(@PathVariable("id") final Long id)
     {
         return repository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException(String.format(ERROR_INFO)));
+                new IllegalArgumentException(ERROR_INFO));
     }
 }
