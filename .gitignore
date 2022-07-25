@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/sql/blog_lite_db.mwb.bak
