@@ -40,7 +40,7 @@ public class BlTagController
     public BlTag getById(@PathVariable("id") final Long id)
     {
         return repository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException(String.format(ERROR_INFO)));
+                new IllegalArgumentException(ERROR_INFO));
     }
 
     @PostMapping("/tag")
@@ -59,7 +59,7 @@ public class BlTagController
         }
         else
         {
-            throw new IllegalArgumentException(String.format(ERROR_INFO));
+            throw new IllegalArgumentException(ERROR_INFO);
         }
     }
 
@@ -72,7 +72,7 @@ public class BlTagController
         }
         else
         {
-            throw new IllegalArgumentException(String.format(ERROR_INFO));
+            throw new IllegalArgumentException(ERROR_INFO);
         }
     }
 }

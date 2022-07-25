@@ -42,7 +42,7 @@ public class BlUserController
     public BlUser getById(@PathVariable("id") final Long id)
     {
         return repository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException(String.format((ERROR_INFO))));
+                new IllegalArgumentException(ERROR_INFO));
     }
 
     @PostMapping("/user")
@@ -61,7 +61,7 @@ public class BlUserController
         }
         else
         {
-            throw new IllegalArgumentException(String.format(ERROR_INFO));
+            throw new IllegalArgumentException(ERROR_INFO);
         }
     }
 
@@ -74,7 +74,7 @@ public class BlUserController
         }
         else
         {
-            throw new IllegalArgumentException(String.format(ERROR_INFO));
+            throw new IllegalArgumentException(ERROR_INFO);
         }
     }
 

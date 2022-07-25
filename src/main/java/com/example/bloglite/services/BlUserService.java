@@ -7,9 +7,6 @@ import com.example.bloglite.repositories.BlUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Entity;
-import java.util.Scanner;
-
 @Service
 public class BlUserService
 {
@@ -45,7 +42,7 @@ public class BlUserService
         entity.setLastName(userPojo.getLastName());
         entity.setEmail(userPojo.getEmail());
         entity.setRole(roleRepository.findById(userPojo.getRoleId()).orElseThrow(() ->
-                new IllegalArgumentException(String.format(ERROR_INFO))));
+                new IllegalArgumentException(ERROR_INFO)));
         return entity;
     }
 
